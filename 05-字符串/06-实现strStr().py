@@ -45,6 +45,7 @@ class Solution(object):
 
 
 if __name__ == '__main__':
+
     haystack = "aabaabaafa"
     needle = "abaaf"
 

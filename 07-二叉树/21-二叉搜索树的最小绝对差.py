@@ -49,4 +49,3 @@ class Solution(object):
                 pre = cur
                 cur = cur.right
             return result
-

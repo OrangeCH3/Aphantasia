@@ -8,6 +8,7 @@
 
 class Solution(object):
 
+
     # 求背包是否正好装满
     def canPartition(self, nums):
         target = sum(nums)

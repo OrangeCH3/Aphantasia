@@ -16,6 +16,7 @@ class Solution(object):
         for str in strs:
             ones = str.count('1')
             zeros = str.count('0')
+
             # 遍历背包容量且从后向前遍历
             for i in range(m, zeros - 1, -1):
                 for j in range(n, ones - 1, -1):

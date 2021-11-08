@@ -36,5 +36,6 @@ if __name__ == '__main__':
     solution = Solution()
     res1 = solution.findMaxForm(strs1, m1, n1)
     res2 = solution.findMaxForm(strs2, m2, n2)
+
     print(res1)
     print(res2)

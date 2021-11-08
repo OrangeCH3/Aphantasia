@@ -28,9 +28,11 @@ if __name__ == '__main__':
     strs1 = ["10", "0001", "111001", "1", "0"]
     m1 = 5
     n1 = 3
+
     strs2 = ["10", "0", "1"]
     m2 = 1
     n2 = 1
+
     solution = Solution()
     res1 = solution.findMaxForm(strs1, m1, n1)
     res2 = solution.findMaxForm(strs2, m2, n2)

@@ -81,8 +81,8 @@ if __name__ == '__main__':
     heights = [2, 1, 5, 6, 2, 3]
     solution = Solution()
 
-    res = solution.largestRectangleArea(heights)
-    print(res)
+    res0 = solution.largestRectangleArea(heights)
+    print(res0)
 
     res1 = solution.largestRectangleAreaDitto(heights)
     print(res1)

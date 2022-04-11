@@ -12,19 +12,18 @@ sys.setrecursionlimit(100000)
 
 # 时间复杂度是O(logn)
 def nthx(x, n):
-
     if n == 0:
         return 1
 
-    t = nthx(x, n//2)  # 将n/2个递归操作抽取出来
+    t = nthx(x, n // 2)  # 将n/2个递归操作抽取出来
 
     # n为奇数项
     if n % 2 == 1:
-        return t*t*x
+        return t * t * x
 
     # n为偶数项
     else:
-        return t*t
+        return t * t
 
 
 if __name__ == '__main__':

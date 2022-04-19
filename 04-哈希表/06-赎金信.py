@@ -81,8 +81,11 @@ class Solution(object):
         c1 = Counter(ransom)
         c2 = Counter(magazine)
         x = c1 - c2
+        # print(x.elements())
+
         # x只保留值大于0的符号，当c1里面的符号个数小于c2时，不会被保留
         # 所以x只保留下了，magazine不能表达的
+
         if len(x) == 0:
             return True
         else:

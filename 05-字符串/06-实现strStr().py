@@ -19,7 +19,7 @@ class Solution(object):
             return 0
 
         next = self.getNext(a, needle)
-        # print(next)
+        print(next)
         p = 0
         for j in range(b):
             while p > 0 and needle[p] != haystack[j]:
@@ -32,7 +32,7 @@ class Solution(object):
         return -1
 
     def getNext(self, a, needle):
-        next = ['' for i in range(a)]
+        next = [0 for i in range(a)]
         k = 0
         next[0] = k
         for i in range(1, a):
@@ -45,8 +45,8 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    haystack = "aabaabaafa"
-    needle = "abaaf"
+    haystack = "aabaababfa"
+    needle = "ababf"
 
     s = Solution()
     res = s.strStr(haystack, needle)

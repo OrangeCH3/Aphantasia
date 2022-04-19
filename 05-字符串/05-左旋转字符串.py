@@ -20,11 +20,10 @@ class Solution(object):
 
     # 1. 使用切片的方法
     def reverseLeftWords(self, s, n):
-        return s[n:] +s[0:n]
+        return s[n:] + s[0:n]
 
     # 2. 使用反转子字符串的方法
     def reverseLeftWordsDitto(self, s, n):
-
         def reverse_substr(lst, left, right):
             while left < right:
                 lst[left], lst[right] = lst[right], lst[left]
@@ -33,7 +32,7 @@ class Solution(object):
 
         tmp = list(s)
         end = len(tmp) - 1
-        reverse_substr(tmp, 0, n-1)
+        reverse_substr(tmp, 0, n - 1)
         reverse_substr(tmp, n, end)
         reverse_substr(tmp, 0, end)
 
@@ -41,7 +40,6 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-
     str1 = "slabcdefghj"
     n = 2
 

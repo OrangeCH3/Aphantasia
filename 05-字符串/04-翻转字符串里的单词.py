@@ -23,10 +23,10 @@ class Solution(object):
             right -= 1
 
         tmp = []
-        while left <= right:
+        while left <= right:  # 消除单词中间多余的空格
             if s[left] != ' ':
                 tmp.append(s[left])
-            elif tmp[-1] != ' ':
+            elif tmp[-1] != ' ':  # 若读取到空格，列表中最后一个元素不为空格，则添加
                 tmp.append(s[left])
             left += 1
         return tmp

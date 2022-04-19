@@ -29,7 +29,7 @@ class Solution(object):
         isSame = outside and inside
         return isSame
 
-    # 迭代法： 使用队列
+    # 迭代法：使用队列
     def isSymmetricDitto(self, root):
         if not root:
             return True
@@ -53,12 +53,12 @@ class Solution(object):
     def isSymmetricDittoo(self, root):
         if not root:
             return True
-        stack = []
-        stack.append(root.left)
-        stack.append(root.right)
+        st = []
+        st.append(root.left)
+        st.append(root.right)
         while stack:
-            leftnode = stack.pop()
-            rightnode = stack.pop()
+            leftNode = stack.pop()
+            rightNode = stack.pop()
             if not leftNode and not rightNode:
                 continue  # 注意：必须为continue
             if not leftNode or not rightNode or leftNode.val != rightNode.val:

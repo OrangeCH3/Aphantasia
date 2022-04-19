@@ -30,7 +30,7 @@ class Solution(object):
         for value, freq in value_freque.items():
             heapq.heappush(priority_queue, (freq, value))
             if len(priority_queue) > k:
-                heapq.heappop(priority_queue)   # 从堆中弹出最小的元素
+                heapq.heappop(priority_queue)  # 从堆中弹出最小的元素
         print(priority_queue)
 
         result = [0] * k

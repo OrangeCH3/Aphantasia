@@ -22,19 +22,17 @@ class TreeNode:
 
 class Solution(object):
 
-    def constructMaximumBinaryTree(self, nums):
-
+    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
         if not nums:
             return None
+        maxvalue = max(nums)
+        index = nums.index(maxvalue)
 
-        root = TreeNode(max(nums))
+        root = TreeNode(maxvalue)
 
-        cut_idx = nums.index(root.val)
+        left = nums[:index]
+        right = nums[index + 1:]
 
-        if cut_idx > 0:
-            root.left = self.constructMaximumBinaryTree(nums[:cut_idx])
-
-        if p > len(nums):
-            root.right = self.constructMaximumBinaryTree(nums[p+1:])
-
+        root.left = self.constructMaximumBinaryTree(left)
+        root.right = self.constructMaximumBinaryTree(right)
         return root

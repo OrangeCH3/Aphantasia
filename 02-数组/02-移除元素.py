@@ -27,7 +27,7 @@ def remove_element(nums, val):
         # slow 指针停止移动, fast 指针继续前进
         fast += 1
 
-    return slow, nums
+    return slow, nums[:slow]
 
 
 if __name__ == '__main__':

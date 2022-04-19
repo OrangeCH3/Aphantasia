@@ -31,16 +31,16 @@ class Solution(object):
         map_echo = dict()
         for n1 in nums1:
             for n2 in nums2:
-                if n1+n2 in map_echo:
-                    map_echo[n1+n2] += 1
+                if n1 + n2 in map_echo:
+                    map_echo[n1 + n2] += 1
                 else:
-                    map_echo[n1+n2] = 1
+                    map_echo[n1 + n2] = 1
 
         # if the -(a+b) exists in nums3 and nums4, we shall add the count
         count = 0
         for n3 in nums3:
             for n4 in nums4:
-                key = -(n3+n4)
+                key = -(n3 + n4)
                 if key in map_echo:
                     count += map_echo[key]
 
@@ -48,7 +48,6 @@ class Solution(object):
 
 
 if __name__ == '__main1__':
-
     a = [1, 2]
     b = [-2, -1]
     c = [-1, 2]
@@ -58,12 +57,12 @@ if __name__ == '__main1__':
     res = s.fourSumCount(a, b, c, d)
     print(res)
 
-
 # -------分割线-------
 
 
 # defaultdict()
 from collections import defaultdict
+
 
 class SolutionDitto(object):
 
@@ -74,12 +73,12 @@ class SolutionDitto(object):
 
         for x1 in nums1:
             for x2 in nums2:
-                map_ditto[x1+x2] += 1
+                map_ditto[x1 + x2] += 1
 
         count_ditto = 0
         for x3 in nums3:
             for x4 in nums4:
-                key_ditto = -x3-x4
+                key_ditto = -x3 - x4
                 value = map_ditto[key_ditto]  # 若差值(key)不存在，则value返回0
                 count_ditto += value
 

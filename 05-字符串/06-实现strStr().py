@@ -7,7 +7,7 @@
 
 
 # 实现 strStr() 函数。
-# 本题是KMP 经典题目
+# 本题是 KMP 经典题目
 
 
 class Solution(object):

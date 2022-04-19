@@ -24,7 +24,7 @@ def is_anagram(s, t):
     print(record)
 
     for k in range(26):
-        if record[i] != 0:
+        if record[k] != 0:
             return False
 
     return True

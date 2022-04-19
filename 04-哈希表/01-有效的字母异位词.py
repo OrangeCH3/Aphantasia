@@ -11,11 +11,10 @@
 
 # 1.数组形式
 def is_anagram(s, t):
-
     record = [0] * 26
 
     for i in range(len(s)):
-        record[ord(s[i])-ord('a')] += 1
+        record[ord(s[i]) - ord('a')] += 1
 
     print(record)
 
@@ -36,7 +35,6 @@ if __name__ == '__main1__':
     res = is_anagram(s, t)
     print(res)
 
-
 # -------分割线-------
 
 
@@ -45,7 +43,6 @@ from collections import defaultdict
 
 # 字典形式
 def is_anagram2(s, t):
-
     s_dict = defaultdict(int)
     t_dict = defaultdict(int)
 

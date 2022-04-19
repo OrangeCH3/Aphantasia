@@ -23,11 +23,11 @@ class Solution(object):
         p = 0
         for j in range(b):
             while p > 0 and needle[p] != haystack[j]:
-                p = next[p-1]
+                p = next[p - 1]
             if needle[p] == haystack[j]:
                 p += 1
             if p == a:
-                return j-a+1
+                return j - a + 1
 
         return -1
 
@@ -37,7 +37,7 @@ class Solution(object):
         next[0] = k
         for i in range(1, a):
             while k > 0 and needle[k] != needle[i]:
-                k = next[k-1]
+                k = next[k - 1]
             if needle[k] == needle[i]:
                 k += 1
             next[i] = k
@@ -45,7 +45,6 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-
     haystack = "aabaabaafa"
     needle = "abaaf"
 

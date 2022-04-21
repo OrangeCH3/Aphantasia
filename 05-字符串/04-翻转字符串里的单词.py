@@ -60,6 +60,7 @@ if __name__ == '__main__':
 
     s = Solution()
     s_trim = s.trim_spaces(str1)
+    print(s_trim)
     s.reverse_string(s_trim, 0, len(s_trim)-1)
     s.reverse_each_word(s_trim)
 

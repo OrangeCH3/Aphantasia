@@ -19,6 +19,8 @@ def replaceSpace(s):
 
     res = list(s)
 
+    print(res)
+
     res.extend([' '] * counter * 2)
 
     old, new = len(s)-1, len(res)-1

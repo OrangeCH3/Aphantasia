@@ -28,10 +28,8 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-
     list1 = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
 
     s = Solution()
     res = s.evalRPN(list1)
     print(res)
-

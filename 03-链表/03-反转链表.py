@@ -16,7 +16,7 @@
 def reverseLinkedList(head):
 
     cur = head
-    pre = None
+    pre = None  # 必须是 None 值
 
     while cur != None:
         tmp = cur.next

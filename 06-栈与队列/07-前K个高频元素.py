@@ -34,16 +34,31 @@ class Solution(object):
         print(priority_queue)
 
         result = [0] * k
-        for i in range(k-1, -1, -1):
+        for i in range(k - 1, -1, -1):
             result[i] = heapq.heappop(priority_queue)[1]
         return result
 
+    def topKFrequentDitto(self, nums, k):
+        val_freq = defaultdict(int)
+
+        for val in nums:
+            val_freq[val] += 1
+
+        val_freq_sort = sorted(val_freq.items(), key=lambda x: x[1], reverse=True)
+
+        res = []
+        for i in range(k):
+            res.append(val_freq_sort[i][0])
+            k -= 1
+        return res
+
 
 if __name__ == '__main__':
-
     nums = [1, 1, 1, 2, 2, 3]
     k = 2
 
     s = Solution()
     res = s.topKFrequent(nums, k)
     print(res)
+    res1 = s.topKFrequentDitto(nums, k)
+    print(res1)

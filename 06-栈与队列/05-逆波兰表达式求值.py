@@ -21,7 +21,7 @@ class Solution(object):
                 stack.append(item)
             else:
                 right, left = stack.pop(), stack.pop()
-                tmp = int(eval(f'{left} {item} {right}'))
+                tmp = int(eval(f'{left} {item} {right}'))  # 必须用int来接 题目要求除法只保留整数部分
                 stack.append(tmp)
 
         return int(stack.pop())

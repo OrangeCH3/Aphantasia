@@ -39,7 +39,7 @@ class Solution(object):
     # 迭代法，层序遍历
     def invertTreeDittoo(self, root):
         if not root:
-            return results
+            return
         que = deque([root])
         while que:
             size = len(que)

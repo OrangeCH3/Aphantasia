@@ -7,6 +7,7 @@
 
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, value):
         self.value = value
@@ -41,17 +42,17 @@ class Solution(object):
     # 递归法
     def levelOrderDitto(self, root):
         res = []
-        def helper(node, depth):
+
+        def helper(root, depth):
             if not root:
                 return []
             if len(res) == depth:
                 res.append([])
             res[depth].append(root.val)
             if root.left:
-                helper(root.left, depth+1)
+                helper(root.left, depth + 1)
             if root.right:
-                helper(root.right, depth+1)
+                helper(root.right, depth + 1)
 
         helper(root, 0)
         return res
-

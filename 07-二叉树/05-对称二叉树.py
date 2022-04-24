@@ -14,14 +14,17 @@ class Solution(object):
         if not root:
             return True
         return self.compare(root.left, root.right)
+
     def compare(self, left, right):
         # 1. 首先排除空节点的情况
         if not left and right: return False
         if left and not right: return False
-        if not left and not right: return True
+        if not left and not right:
+            return True
 
         # 2. 排除了空节点，再排除数值不相同的情况
-        elif left.val != right.val: return False
+        elif left.val != right.val:
+            return False
 
         # 3. 最后判断左右节点都不为空，且数值相同的情况
         outside = self.compare(left.left, right.right)

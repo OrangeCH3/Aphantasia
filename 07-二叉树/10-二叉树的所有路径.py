@@ -10,7 +10,7 @@ class Solution(object):
 
     def binaryTreePaths(self, root):
         initpath = []
-        result = []
+        res = []
 
         def backtrace(node, path):
             if not node:

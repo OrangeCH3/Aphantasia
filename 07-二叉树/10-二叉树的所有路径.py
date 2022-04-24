@@ -9,15 +9,17 @@
 class Solution(object):
 
     def binaryTreePaths(self, root):
-        initpath = []
+        # initpath = []
         res = []
 
-        def backtrace(node, path):
-            if not node:
-                return
+        def backtrace(node, path=[]):
+            # if not node:
+            #     return
             path.append(node.val)
             if not node.left and not node.right:
                 res.append(path[:])
+                return
+
             ways = []
             if node.left: ways.append(node.left)
             if node.right: ways.append(node.right)
@@ -25,5 +27,5 @@ class Solution(object):
                 backtrace(way, path)
                 path.pop()  # 回溯
 
-        backtrace(root, initpath)
+        backtrace(root)
         return ['->'.join(list(map(str, i))) for i in res]

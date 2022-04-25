@@ -44,31 +44,27 @@ class Solution(object):
     # 迭代法-中序遍历(不使用额外空间，利用二叉搜索树特性)
     def findModeDitto(self, root):
         stack = []
-        cur = root
-        pre = None
-
-        maxCount, count = 0, 0
         res = []
+        pre = None
+        cur = root
+        count = 1
+        maxcnt = 0
 
         while stack or cur:
-            if cur:  # 指针来访问节点，访问到最底层
+            if cur:
                 stack.append(cur)
                 cur = cur.left
-
             else:
                 cur = stack.pop()
-
-                if pre == None:
-                    count = 1
-                elif pre.val == cur.val:
+                if pre and pre.val == cur.val:
                     count += 1
                 else:
                     count = 1
 
-                if count == maxCount:
+                if count == maxcnt:
                     res.append(cur.val)
-                if count > maxCount:
-                    maxCount = count
+                if count > maxcnt:
+                    maxcnt = count
                     res.clear()
                     res.append(cur.val)
 

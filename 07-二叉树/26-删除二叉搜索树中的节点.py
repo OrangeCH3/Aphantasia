@@ -8,41 +8,31 @@
 
 class Solution(object):
 
-    def deleteNode(self, root, key):
+    def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
 
-        if not root:  # 第一种情况：没找到删除的节点，遍历到空节点直接返回了
-            return root
-
+        if not root:
+            return None
 
         if root.val == key:
-            if not root.left and not root.right:  # 第二种情况：左右孩子都为空（叶子节点），直接删除节点， 返回NULL为根节点
+            if not root.left and not root.right:
                 del root
                 return None
-
-            if not root.left and root.right:   # 第三种情况：其左孩子为空，右孩子不为空，删除节点，右孩子补位 ，返回右孩子为根节点
-                tmp = root
-                root = root.right
-                del tmp
-                return root
-
-            if root.left and not root.right:  # 第四种情况：其右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点
-                tmp = root
+            elif root.left and not root.right:
                 root = root.left
-                del tmp
                 return root
-
-            else:  # 第五种情况：左右孩子节点都不为空，则将删除节点的左子树放到删除节点的右子树的最左面节点的左孩子的位置
+            elif not root.left and root.right:
+                root = root.right
+                return root
+            else:
                 v = root.right
                 while v.left:
                     v = v.left
                 v.left = root.left
-                tmp = root
                 root = root.right
-                del tmp
                 return root
 
         if root.val > key:
-            root.left = self.deleteNode(root.left, key)  # 左递归
+            root.left = self.deleteNode(root.left, key)
         if root.val < key:
-            root.right = self.deleteNode(root.right, key)  # 右递归
+            root.right = self.deleteNode(root.right, key)
         return root

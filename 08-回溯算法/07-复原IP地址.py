@@ -13,22 +13,22 @@ class Solution(object):
         res = []
         path = []
 
-        def backtrack(path, start):
+        def bt(s, start):
             if len(path) == 4 and start == len(s):
-                return res.append(".".join(path[:]))
+                return res.append('.'.join(path[:]))
 
-            for i in range(start+1, min(start+4, len(s)+1)):  # 剪枝
-                string = s[start:i]
-                if not 0 <= int(string) <= 255:
+            for i in range(start, min(start + 4, len(s))):
+                tmp = s[start:i + 1]
+                if not 0 <= int(tmp) <= 255:
                     continue
-                if string != "0" and string.lstrip("0") != string:
+                if tmp != '0' and tmp.lstrip('0') != tmp:
                     continue
 
-                path.append(string)
-                backtrack(path, i)
+                path.append(tmp)
+                bt(s, i + 1)
                 path.pop()
 
-        backtrack(path, 0)
+        bt(s, 0)
         return res
 
 

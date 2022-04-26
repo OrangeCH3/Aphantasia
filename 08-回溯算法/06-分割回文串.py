@@ -18,14 +18,14 @@ class Solution(object):
                 return res.append(path[:])
 
             for i in range(start, len(s)):
-                p = s[start: i+1]
+                p = s[start: i + 1]
 
                 if p == p[::-1]:
                     path.append(p)
                 else:
                     continue
 
-                backtrack(s, i+1)
+                backtrack(s, i + 1)
                 path.pop()
 
         backtrack(s, 0)

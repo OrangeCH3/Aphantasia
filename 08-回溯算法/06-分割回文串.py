@@ -14,7 +14,7 @@ class Solution(object):
         path = []
 
         def backtrack(s, start):
-            if start >= len(s):
+            if start == len(s):
                 return res.append(path[:])
 
             for i in range(start, len(s)):

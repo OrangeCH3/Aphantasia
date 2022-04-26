@@ -26,8 +26,10 @@ class Solution(object):
         def backtrack(digits, index, s):
             if index == len(digits):
                 return res.append(s)
+
             digit = int(digits[index])
             letters = letterMap[digit]
+
             for i in range(len(letters)):
                 s += letters[i]
                 backtrack(digits, index+1, s)

@@ -19,7 +19,7 @@ class Solution(object):
                     return False
             startRow = (row // 3) * 3
             startCol = (col // 3) * 3
-            for i in range(startRow, startRow + 3):  #判断9方格里是否重复
+            for i in range(startRow, startRow + 3):  # 判断9方格里是否重复
                 for j in range(startCol, startCol + 3):
                     if board[i][j] == str(val):
                         return False
@@ -38,7 +38,9 @@ class Solution(object):
                             board[i][j] = "."
                     return False  # 9个数都试完了，都不行，那么就返回false
             return True  # 遍历完没有返回false，说明找到了合适棋盘位置了
+
         backtarck(board)
+
 
 if __name__ == '__main__':
     board = [["5", "3", ".", ".", "7", ".", ".", ".", "."],

@@ -13,23 +13,22 @@ class Solution(object):
 
     def permute(self, nums):
 
-        res = []
-        path = []
-        used = []
+        res, path, used = [], [], []
 
-        def backtrack(nums, used):
+        def bt(nums):
             if len(path) == len(nums):
-                return res.append(path[:])
+                res.append(path[:])
             for i in range(len(nums)):
                 if nums[i] in used:
-                    continue  # used里已经收录的元素，直接跳过
+                    continue
+
                 path.append(nums[i])
                 used.append(nums[i])
-                backtrack(nums, used)
-                used.pop()
+                bt(nums)
                 path.pop()
+                used.pop()
 
-        backtrack(nums, used)
+        bt(nums)
         return res
 
     # 优化：不用used数组

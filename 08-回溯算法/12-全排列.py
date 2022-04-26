@@ -17,20 +17,22 @@ class Solution(object):
         path = []
         used = [0] * len(nums)
 
-        def backtrack(nums, used, path):
+        def bt(nums):
             if len(path) == len(nums):
                 return res.append(path[:])
             for i in range(len(nums)):
                 if not used[i]:
                     if i > 0 and nums[i] == nums[i - 1] and not used[i - 1]:
                         continue
+
                     used[i] = 1
                     path.append(nums[i])
-                    backtrack(nums, used, path)
+                    bt(nums)
                     path.pop()
                     used[i] = 0
-        nums = sorted(nums)
-        backtrack(nums, used, path)
+
+        nums.sort()
+        bt(nums)
         return res
 
 

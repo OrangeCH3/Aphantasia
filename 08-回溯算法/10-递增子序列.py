@@ -13,12 +13,13 @@ class Solution(object):
         res = []
         path = []
 
+
         def backtrack(nums, start):
 
-            repeat = []  # 这里使用数组来进行去重操作
             if len(path) >= 2:
                 res.append(path[:])
 
+            repeat = []  # 这里使用数组来进行去重操作
             for i in range(start, len(nums)):
                 if nums[i] in repeat:
                     continue
@@ -27,7 +28,7 @@ class Solution(object):
                         continue
                 repeat.append(nums[i])
                 path.append(nums[i])
-                backtrack(nums, i+1)
+                backtrack(nums, i + 1)
                 path.pop()
 
         backtrack(nums, 0)
@@ -35,7 +36,6 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-
     nums = [4, 7, 6, 7]
     s = Solution()
     res = s.findSubsequences(nums)

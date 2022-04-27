@@ -10,21 +10,24 @@ class Solution(object):
 
     def partitionLabels(self, s):
 
-        records = [0] * 26
-        for i in range(len(s)):
-            records[ord(s[i]) - ord('a')] = i  # 遍历所有字母的最远边界索引
+        from collections import defaultdict
 
-        result = []
-        left, right = 0, 0
+        record = defaultdict(int)
+
+        for i in range(len(s)):
+            record[s[i]] = i
+
+        res = []
+        l, r = 0, 0
 
         for j in range(len(s)):
-            right = max(right, records[ord(s[j]) - ord('a')])
+            r = max(r, record[s[j]])
 
-            if j == right:
-                result.append(right - left + 1)
-                left = j + 1
+            if j == r:
+                res.append(r - l + 1)
+                l = r + 1
 
-        return result
+        return res
 
 
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ class Solution(object):
         for i in range(2, lenth):
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
 
-        return min(dp[lenth - 1], dp[lenth - 2]), dp
+        return min(dp[-1], dp[-2]), dp
 
 
 if __name__ == '__main__':

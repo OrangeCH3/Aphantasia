@@ -13,9 +13,9 @@ class Solution(object):
         dp = [10 ** 4 + 1] * (n + 1)
         dp[0] = 0
 
-        for num in nums:
-            for j in range(num, n + 1):
-                dp[j] = min(dp[j], dp[j - num] + 1)
+        for i in range(len(nums)):
+            for j in range(nums[i], n + 1):
+                dp[j] = min(dp[j], dp[j - nums[i]] + 1)
 
         return dp[-1]
 

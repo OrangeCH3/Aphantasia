@@ -13,11 +13,14 @@ class Solution(object):
         dp = [amount + 1] * (amount + 1)
         dp[0] = 0
 
-        for coin in coins:
-            for j in range(coin, amount + 1):
-                dp[j] = min(dp[j], dp[j - coin] + 1)
+        for i in range(len(coins)):
+            for j in range(coins[i], amount + 1):
+                dp[j] = min(dp[j], dp[j - coins[i]] + 1)
 
-        return dp[-1] if dp[-1] < amount + 1 else -1
+        if dp[-1] < amount + 1:
+            return dp[-1]
+        else:
+            return -1
 
 
 if __name__ == '__main__':

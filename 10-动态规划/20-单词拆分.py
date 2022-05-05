@@ -12,6 +12,7 @@ class Solution(object):
         dp = [False] * (len(s) + 1)
         dp[0] = True
 
+        # 排列问题
         for j in range(len(s) + 1):
             for word in wordDict:
                 if j >= len(word):

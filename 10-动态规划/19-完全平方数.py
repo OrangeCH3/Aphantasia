@@ -9,7 +9,7 @@
 class Solution(object):
 
     def numSquares(self, n):
-        nums = [i ** 2 for i in range(1, n) if i ** 2 <= n]
+        nums = [i ** 2 for i in range(1, n + 1) if i ** 2 <= n]
         dp = [10 ** 4 + 1] * (n + 1)
         dp[0] = 0
 

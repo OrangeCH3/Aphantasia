@@ -9,6 +9,16 @@
 class Solution(object):
 
     def rob(self, nums):
+
+        if len(nums) == 1:  # 题目中提示nums.length>=1,所以不需要考虑len(nums)==0的情况
+            return nums[0]
+
+        val1 = self.robhelper(nums[1:])  # 不偷第一间房
+        val2 = self.robhelper(nums[:-1])  # 不偷最后一间房
+
+        return max(val1, val2)
+
+    def robhelper(self, nums):
         if len(nums) == 0:
             return 0
         if len(nums) == 1:

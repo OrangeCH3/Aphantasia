@@ -12,10 +12,9 @@ class Solution(object):
         dp = [False] * (len(s) + 1)
         dp[0] = True
 
-        for j in range(1, len(s) + 1):
+        for j in range(len(s) + 1):
             for word in wordDict:
                 if j >= len(word):
-                    # dp[i]: 字符串长度为i的话，dp[i]为true，表示可以拆分为一个或多个在字典中出现的单词。
                     dp[j] = dp[j] or (dp[j - len(word)] and word == s[j - len(word):j])
 
         return dp[-1]

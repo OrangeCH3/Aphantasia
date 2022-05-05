@@ -21,7 +21,8 @@ class Solution(object):
 
         for j in range(n + 1):
             for i in range(1, m + 1):
-                dp[j] += dp[j - i]
+                if j >= i:
+                    dp[j] += dp[j - i]
 
         return dp[-1]
 

@@ -12,36 +12,31 @@
 class Solution(object):
 
     def rob(self, nums):
+
+        def robRange(nums, start, end):
+
+            dp = [0] * len(nums)
+            dp[start] = nums[start]
+            dp[start + 1] = max(nums[start], nums[start + 1])
+
+            for i in range(start + 2, len(nums)):
+                dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
+
+            return dp[-1]
+
         n = len(nums)
-        if n == 0:
-            return 0
         if n == 1:
             return nums[0]
         if n == 2:
             return max(nums[0], nums[1])
 
-        res1 = self.robRange(nums, 0, n - 1)
-        res2 = self.robRange(nums, 1, n)
-
+        res1 = robRange(nums, 0, n - 1)
+        res2 = robRange(nums, 1, n)
         return max(res1, res2)
-
-    def robRange(self, nums, start, end):
-        # # n为2时的特殊情况
-        # if end-1 == start:
-        #     return nums[start]
-
-        dp = [0] * len(nums)
-        dp[start] = nums[start]
-        dp[start + 1] = max(nums[start], nums[start + 1])
-
-        for i in range(start + 2, end):
-            dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
-
-        return dp[-1]
 
 
 if __name__ == '__main__':
-    nums = [1, 6, 7, 4]
+    nums = [1, 2, 3, 1]
     solution = Solution()
     res = solution.rob(nums)
     print(res)

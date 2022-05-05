@@ -20,9 +20,9 @@ class Solution(object):
 
         # 求排列数就是外层for遍历背包，内层for循环遍历物品
         for j in range(target + 1):
-            for i in nums:
-                if j >= i:
-                    dp[j] += dp[j - i]
+            for i in range(len(nums)):
+                if j >= nums[i]:
+                    dp[j] += dp[j - nums[i]]
 
         return dp[-1]
 

@@ -9,26 +9,20 @@
 class Solution(object):
 
     def lengthOfLIS(self, nums):
-        n = len(nums)
 
-        if n == 0:
-            return 0
+        dp = [1] * len(nums)
 
-        dp = [1] * n
-        result = 1
-
-        for i in range(1, n):
-            for j in range(0, i):
+        for i in range(1, len(nums)):
+            for j in range(i):
                 if nums[i] > nums[j]:
                     dp[i] = max(dp[i], dp[j] + 1)
-            result = max(result, dp[i])
 
-        return result
+        return max(dp)
 
 
 if __name__ == '__main__':
     nums1 = [10, 9, 2, 5, 3, 7, 101, 18]
-    nums2 = []
+    nums2 = [3, 4]
     nums3 = [2]
     nums4 = [2, 1]
     solution = Solution()

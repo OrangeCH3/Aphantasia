@@ -9,20 +9,20 @@
 class Solution(object):
 
     def isSubsequence(self, s, t):
-        len1, len2 = len(s) + 1, len(t) + 1
-        dp = [[0 for _ in range(len2)] for _ in range(len1)]
 
-        for i in range(1, len1):
-            for j in range(1, len2):
+        row = len(s) + 1
+        col = len(t) + 1
+
+        dp = [[0] * col for _ in range(row)]
+
+        for i in range(1, row):
+            for j in range(1, col):
                 if s[i - 1] == t[j - 1]:
                     dp[i][j] = dp[i - 1][j - 1] + 1
                 else:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
-        if dp[-1][-1] == len1 - 1:
-            return True, dp
-
-        return False, dp
+        return dp[-1][-1] == len(s), dp
 
 
 if __name__ == '__main__':

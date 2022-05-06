@@ -13,20 +13,14 @@ class Solution(object):
 
     # 动态规划
     def findLengthOfLCIS(self, nums):
-        n = len(nums)
 
-        if n == 0:
-            return 0
+        dp = [1] * len(nums)
 
-        result = 1
-        dp = [1] * n
-
-        for i in range(1, n):
+        for i in range(1, len(nums)):
             if nums[i] > nums[i - 1]:
                 dp[i] = dp[i - 1] + 1
-            result = max(result, dp[i])
 
-        return result, dp
+        return max(dp), dp
 
     # 贪心
     def findLengthOfLCISDitto(self, nums):

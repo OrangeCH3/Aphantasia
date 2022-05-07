@@ -25,7 +25,7 @@ class Solution(object):
                 #     elif dp[i + 1][j - 1]:
                 #         result += 1
                 #         dp[i][j] = True
-                if s[i] == s[j] and (j - i <= 1 or dp[i + 1][j - 1]):
+                if s[i] == s[j] and (j - i <= 2 or dp[i + 1][j - 1]):
                     result += 1
                     dp[i][j] = True
 

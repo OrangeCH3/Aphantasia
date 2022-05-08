@@ -9,17 +9,21 @@
 class Solution(object):
 
     def nextGreaterElements(self, nums):
+
         n = len(nums)
-        dp = [-1 for _ in range(n)]
-        stack = []
+        res = [-1] * n
+        stack = [0]
 
-        for i in range(n * 2):
-            while len(stack) != 0 and nums[i % n] > nums[stack[-1]]:
-                dp[stack[-1]] = nums[i % n]
-                stack.pop()
-            stack.append(i % n)
+        for i in range(1, n * 2):
+            if nums[i % n] <= nums[stack[-1]]:
+                stack.append(i % n)
+            else:
+                while len(stack) != 0 and nums[i % n] > nums[stack[-1]]:
+                    res[stack[-1]] = nums[i % n]
+                    stack.pop()
+                stack.append(i % n)
 
-        return dp
+        return res
 
 
 if __name__ == '__main__':

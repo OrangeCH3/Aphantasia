@@ -8,7 +8,7 @@
 
 class Solution(object):
 
-    # 双指针法
+    # 双指针法(会超时)
     def trap(self, height):
         n = len(height)
         res = 0

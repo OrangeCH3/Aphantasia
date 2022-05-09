@@ -59,22 +59,24 @@ class Solution(object):
 
     # 单调栈法
     def largestRectangleAreaDittoo(self, heights):
-        n = len(heights)
+
         heights.insert(0, 0)  # padding
         heights.append(0)  # padding
+
+        n = len(heights)
+
         stack = [0]
-        result = 0
+        res = 0
 
         for i in range(1, n):
             while stack and heights[i] < heights[stack[-1]]:
-                mid_height = heights[stack[-1]]
-                stack.pop()
+                midHeight = stack.pop()
                 if stack:
-                    area = (i - stack[-1] - 1) * mid_height
-                    result = max(area, result)
+                    area = (i - stack[-1] - 1) * heights[midHeight]
+                    res = max(res, area)
             stack.append(i)
 
-        return result
+        return res
 
 
 if __name__ == '__main__':

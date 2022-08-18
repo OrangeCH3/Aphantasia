@@ -49,7 +49,6 @@ class Solution(object):
         res = []
         for i in range(k):
             res.append(val_freq_sort[i][0])
-            k -= 1
         return res
 
 

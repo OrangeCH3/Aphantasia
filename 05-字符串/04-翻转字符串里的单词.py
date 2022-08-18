@@ -15,7 +15,7 @@ class Solution(object):
     # 1. 去除多余的空格
     def trim_spaces(self, s):
         n = len(s)
-        left, right = 0, n-1
+        left, right = 0, n - 1
 
         while left <= right and s[left] == ' ':
             left += 1
@@ -48,21 +48,38 @@ class Solution(object):
         while start < n:
             while end < n and nums[end] != ' ':
                 end += 1
-            self.reverse_string(nums, start, end-1)
+            self.reverse_string(nums, start, end - 1)
             start = end + 1
             end += 1
         return None
 
 
-if __name__ == '__main__':
+class SolutionDitto:
+    def reverseWords(self, s: str) -> str:
+        tmp = list(s.split())  # 默认用空格作为分隔符
 
+        l, r = 0, len(tmp) - 1
+
+        while l < r:
+            tmp[l], tmp[r] = tmp[r], tmp[l]
+            l += 1
+            r -= 1
+
+        return " ".join(tmp)
+
+
+if __name__ == '__main__':
     str1 = ' the  sky is blue   '
 
     s = Solution()
     s_trim = s.trim_spaces(str1)
     print(s_trim)
-    s.reverse_string(s_trim, 0, len(s_trim)-1)
+    s.reverse_string(s_trim, 0, len(s_trim) - 1)
     s.reverse_each_word(s_trim)
 
     s_res = ''.join(s_trim)
     print(s_res)
+
+    s1 = SolutionDitto()
+    res1 = s1.reverseWords(str1)
+    print(res1)

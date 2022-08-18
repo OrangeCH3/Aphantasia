@@ -71,3 +71,18 @@ class Solution(object):
             st.append(leftNode.right)
             st.append(rightNode.left)
         return True
+
+    def isSymmetricDittooo(self, root):
+        res = []
+
+        def trv(node, depth):
+            if not node:
+                return None
+            trv(node.left, depth + 1)
+            res.append([node.val, depth])
+            trv(node.right, depth + 1)
+
+        trv(root, 0)
+        print(res)
+
+        return res == res[::-1]

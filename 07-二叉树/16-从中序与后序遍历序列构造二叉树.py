@@ -33,7 +33,7 @@ class Solution(object):
 
         # 5. 切割postorder数组，得到左右半边
         postorder_left = postorder[:len(inorder_left)]
-        postorder_right = postorder[len(inorder_right):-1]
+        postorder_right = postorder[len(inorder_left):-1]
 
         # 6. 递归
         root.left = self.buildTree(inorder_left, postorder_left)

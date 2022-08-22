@@ -14,20 +14,18 @@ class TreeNode:
         self.right = right
 
 
-class Solution(object):
+class Solution:
+    def __init__(self):
+        self.pre = TreeNode(0)
 
-    def BST2AccumuTree(self, root):
+    def convertBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def bulidGST(node):
+            if not node:
+                return node
+            bulidGST(node.right)
+            node.val += self.pre.val
+            self.pre = node
+            bulidGST(node.left)
 
-        def buildalist(root):
-            if not root:
-                return None
-
-            buildalist(root.right)
-            root.val += self.pre
-            self.pre = root.val
-            buildalist(root.left)
-
-        self.pre = 0
-        buildalist(root)
+        bulidGST(root)
         return root
-

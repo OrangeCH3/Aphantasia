@@ -14,6 +14,7 @@ class Solution(object):
         self.count = 0  # 统计频率
         self.countMax = 0  # 最大频率
         self.res = []
+
     def findMode(self, root):
 
         if not root:
@@ -72,3 +73,20 @@ class Solution(object):
                 cur = cur.right
 
         return res
+
+    def findModeDittoo(self, root: Optional[TreeNode]) -> List[int]:
+
+        tmp = []
+
+        def trv(node):
+            if not node:
+                return None
+            trv(node.left)
+            tmp.append(node.val)
+            trv(node.right)
+
+        trv(root)
+        from collections import Counter
+        valCnt = Counter(tmp)
+        valCntSort = sorted(valCnt.items(), key=lambda x: -x[1])
+        return [val for val, cnt in valCntSort if cnt == valCntSort[0][1]]
